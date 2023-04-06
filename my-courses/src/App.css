@@ -65,3 +65,14 @@
 .prevNextButton::-moz-focus-inner {
   border: 0;
 }
+.randomBtn{
+  margin: 8px;
+  background-color: green;
+  color: white;
+}
+.headerCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

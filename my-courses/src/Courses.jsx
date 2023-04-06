@@ -11,22 +11,25 @@ const Courses = ({ courses, refreshCourses }) => {
   const { content, title, price } = courses[index];
 
   const prevCourse = () => {
-    if(index>0){
-      setIndex(index-1);
-      
-    }else{
-      setIndex(courses.length-1)
-     
+    if (index > 0) {
+      setIndex(index - 1);
+    } else {
+      setIndex(courses.length - 1);
     }
   };
   const nextCourse = () => {
-    if(index<courses.length-1){
-      setIndex(index+1);
-      console.log(index);
-    }else{
-      setIndex(0)
-       console.log(index);
+    if (index < courses.length - 1) {
+      setIndex(index + 1);
+    } else {
+      setIndex(0);
     }
+  };
+  const randomCourse = () => {
+    let randomIndex = Math.floor(Math.random() * courses.length);
+    if (randomIndex === index) {
+      nextCourse()
+    }
+    setIndex(randomIndex);
   };
   return (
     <>
@@ -34,8 +37,11 @@ const Courses = ({ courses, refreshCourses }) => {
         {courses.length == 0 ? (
           <img src="https://media.tenor.com/HxIJIDEpTs8AAAAC/deleting-deleted.gif"></img>
         ) : (
-          <div>
+          <div className="headerCard">
             <h2>My Courses</h2>
+            <button onClick={randomCourse} className="randomBtn">
+              Random Course
+            </button>
           </div>
         )}
 
